@@ -1,0 +1,52 @@
+{
+  "name": "starterfront",
+  "version": "1.0.0",
+  "description": "lolo",
+  "main": "index.html",
+  "config": {
+    "src": "./src",
+    "build": "./build"
+  },
+  "scripts": {
+    "build:css": "node-sass src/assets/stylesheets/style.sass build/style.css -r",
+    "build:js": "browserify -t [ babelify --presets [es2015] ] src/assets/javascripts/app.js -o build/app.js",
+    "build:pug": "pug src/views/templates -o build/ -P",
+    "build:img": "cpx src/assets/images/**/*.{svg,png,jpg} build/images -vC",
+    "build:font": "cpx src/assets/fonts/**/*.{woff,woff2} build/fonts -vC",
+    "build:css-dist": "node-sass src/assets/stylesheets/style.sass build/style.min.css -r --output-style=compressed",
+    "minify:js": "uglifyjs build/app.js -o build/app.min.js",
+    "optimize": "imagemin src/assets/images/* --out-dir=build/images/",
+    "watch:css": "node-sass src/assets/stylesheets/style.sass -o build/ -w",
+    "watch:js": "watchify -t [ babelify --presets [es2015] ] src/assets/javascripts/app.js -o build/app.js",
+    "watch:pug": "pug src/views/templates -o build/ -wP",
+    "watch:img": "cpx src/assets/images/**/*.{svg,png,jpg} build/images -wuv",
+    "watch:font": "cpx src/assets/fonts/**/*.{woff,woff2} build/fonts -wuv",
+    "build:all": "npm-run-all build:css build:js build:pug build:img build:font",
+    "watch:all": "npm-run-all --parallel watch:css watch:js watch:pug watch:img watch:font",
+    "build:dist": "npm-run-all build:css build:css-dist build:js minify:js build:pug build:img watch:font",
+    "dev": "npm run watch:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clovis-maniguet/starter-front.git"
+  },
+  "author": "Clovis Maniguet <clovis.maniguet@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/clovis-maniguet/starter-front.git#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "cpx": "^1.5.0",
+    "imagemin-cli": "^3.0.0",
+    "node-sass": "^3.13.0",
+    "npm-run-all": "^4.0.1",
+    "pug": "^2.0.0-beta6",
+    "pug-cli": "^1.0.0-alpha6",
+    "uglify-js": "^2.7.4",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "slick-carousel": "^1.6.0"
+  }
+}
