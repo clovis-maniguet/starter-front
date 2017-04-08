@@ -4,30 +4,42 @@
 
 You want to build a front-end project ? This starter is simple and easy to use. No gulp or grunt dependencies, everything work because of npm.
 
+- Compiles your pug
+- Compiles, autoprefixes and minimizes your sass
+- Compiles with ES2017 and Uglifys your JS
+- Generates a BrowserSync URL for you to access
+
 
 ## Installation
 
-To install the project :
+Clone: `https://github.com/clovis-maniguet/starter-front.git`
 
-    cd ./your-folder
-    npm install
+Once you have cloned the repo, navigate in to the directory via terminal and run.
 
+```bash
+npm install
+npm start
+```
 
 ## API Reference
 
 To learn more about API, take a look in package.json
 
-All this commands arrive after **npm run**
+To start to dev, just run
+```
+npm start
+```
+This command compile every files in a build folder and start a server on port **4040**
 
-    build:all
-To build your app into **build** directory
+To just build without minimizes, just run
+```
+npm run build
+```
 
-    watch:all
-To work dynamically, always rebuilt into **build** directory
-
-    build:dist
-To build your app into **build** directory with minified versions
-
+To build to production, just run
+```
+npm run dist
+```
 
 ## Contributors
 

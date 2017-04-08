@@ -1,0 +1,97 @@
+// **********
+// .switch
+//   input(type="checkbox", id="checkbox")
+//   label(for="checkbox")
+// **********
+
+.switch
+  position: relative
+
+  label
+    +position(absolute, 0 null null 0)
+    +size(45px, 20px)
+    background: $red-500
+    border: 1px solid $red-700
+    border-radius: 30px
+    cursor: pointer
+    transition: all 0.2s $ease-in-quart
+
+    &:after
+      content: ''
+      +size(18px)
+      +position(absolute, 0 null null 0)
+      background: $white
+      border: 1px solid $grey-200
+      border-radius: 30px
+      transition: all 0.2s $ease-in-quart
+      box-shadow: inset 2px 0 4px $grey-300
+  
+  input[type="checkbox"]
+    visibility: hidden
+    opacity: 0
+
+    &:checked 
+    
+      + label
+        background: $green-500
+        border-color: $green-700
+    
+        &:after
+          left: 25px
+
+  &--grey
+    label
+      background: $grey-800
+      border-color: $grey-900
+  
+    input[type="checkbox"]
+
+      &:checked 
+    
+        + label
+          background: $grey-500
+          border-color: $grey-600
+  
+  &--blue
+    label
+      background: $blue-800
+      border-color: $blue-900
+  
+    input[type="checkbox"]
+
+      &:checked 
+    
+        + label
+          background: $blue-500
+          border-color: $blue-600
+
+  &--orange
+    label
+      background: $orange-800
+      border-color: $orange-900
+  
+    input[type="checkbox"]
+
+      &:checked 
+    
+        + label
+          background: $orange-500
+          border-color: $orange-600
+
+  &--bw
+    label
+      background: $black
+      border-color: $black
+  
+    input[type="checkbox"]
+
+      &:checked 
+    
+        + label
+          background: $white
+          border-color: $grey-300
+
+          &:after
+            background: $black
+            border: 1px solid $grey-800
+            box-shadow: inset 2px 0 4px $grey-800
