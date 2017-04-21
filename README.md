@@ -41,6 +41,15 @@ To build to production, just run
 npm run dist
 ```
 
+## Windows
+
+For Windows users, environment variables follow a slightly different format.
+Forgoing the $ and instead wrapping the var in %'s like so 
+
+```
+%npm_package_config_source%
+```
+
 ## Contributors
 
 Project built buy **Clovis Maniguet**

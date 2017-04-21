@@ -1,97 +1,70 @@
-// **********
-// .switch
-//   input(type="checkbox", id="checkbox")
-//   label(for="checkbox")
-// **********
+.label-switch
+  $action-color: #477DCA !default
+  $base-background-color: white !default
+  $switch-width: 52px
+  $switch-padding: 2px
+  $switch-height: 32px
+  $switch-radius: $switch-height
+  $knob-size: $switch-height - $switch-padding * 2
+  $knob-radius: $switch-height - $switch-padding * 2
+  $knob-width: $knob-size
+  $switch-background: $base-background-color
+  $switch-border-background: darken($base-background-color, 9%)
+  $switch-shadow: 0 2px 5px transparentize(black, 0.6)
 
-.switch
+  border-radius: $switch-radius
+  cursor: pointer
+  display: inline-block
+  height: $switch-height
   position: relative
+  width: $switch-width
 
-  label
-    +position(absolute, 0 null null 0)
-    +size(45px, 20px)
-    background: $red-500
-    border: 1px solid $red-700
-    border-radius: 30px
-    cursor: pointer
-    transition: all 0.2s $ease-in-quart
-
-    &:after
-      content: ''
-      +size(18px)
-      +position(absolute, 0 null null 0)
-      background: $white
-      border: 1px solid $grey-200
-      border-radius: 30px
-      transition: all 0.2s $ease-in-quart
-      box-shadow: inset 2px 0 4px $grey-300
-  
   input[type="checkbox"]
-    visibility: hidden
-    opacity: 0
+    display: none
 
-    &:checked 
-    
-      + label
-        background: $green-500
-        border-color: $green-700
-    
-        &:after
-          left: 25px
+    + .checkbox
+      background: $switch-border-background
+      border: 0
+      border-radius: $switch-radius
+      cursor: pointer
+      height: $switch-height
+      margin: 0
+      padding: 0
+      position: relative
+      transition: all 0.3s ease
+      width: $switch-width
+      z-index: 0
 
-  &--grey
-    label
-      background: $grey-800
-      border-color: $grey-900
-  
-    input[type="checkbox"]
+      &::before
+        +position(absolute, 2px 0 0 2px)
 
-      &:checked 
-    
-        + label
-          background: $grey-500
-          border-color: $grey-600
-  
-  &--blue
-    label
-      background: $blue-800
-      border-color: $blue-900
-  
-    input[type="checkbox"]
+        background: $switch-background
+        border-radius: $switch-radius
+        content: ""
+        height: $knob-radius
+        transform: scale(1)
+        transition: all 0.3s ease
+        width: $switch-width - $switch-padding * 2
+        z-index: 1
 
-      &:checked 
-    
-        + label
-          background: $blue-500
-          border-color: $blue-600
+      &::after
+        +position(absolute, 2px 0 0 2px)
 
-  &--orange
-    label
-      background: $orange-800
-      border-color: $orange-900
-  
-    input[type="checkbox"]
+        +size($knob-size)
 
-      &:checked 
-    
-        + label
-          background: $orange-500
-          border-color: $orange-600
+        background: $switch-background
+        border-radius: $knob-radius
+        box-shadow: $switch-shadow
+        content: ""
+        transition: all 0.3s ease
+        z-index: 2
 
-  &--bw
-    label
-      background: $black
-      border-color: $black
-  
-    input[type="checkbox"]
+    &:checked
+      + .checkbox
+        background: $action-color
 
-      &:checked 
-    
-        + label
-          background: $white
-          border-color: $grey-300
+        &::before
+          transform: scale(0)
 
-          &:after
-            background: $black
-            border: 1px solid $grey-800
-            box-shadow: inset 2px 0 4px $grey-800
+        &::after
+          left: $switch-width - $knob-width - $switch-padding

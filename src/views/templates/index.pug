@@ -1,26 +1,6 @@
 extends ../layout/base.pug
 
 block content
-  .home
-    br
-    .switch
-      input(type="checkbox", id="checkbox1")
-      label(for="checkbox1")
-    br
-    .switch.switch--grey
-      input(type="checkbox", id="checkbox2")
-      label(for="checkbox2")
-    br
-    .switch.switch--blue
-      input(type="checkbox", id="checkbox3")
-      label(for="checkbox3")
-    br
-    .switch.switch--orange
-      input(type="checkbox", id="checkbox4")
-      label(for="checkbox4")
-    br
-    .switch.switch--bw
-      input(type="checkbox", id="checkbox5")
-      label(for="checkbox5")
-
-    button.button.btn Click me !
+  label.label-switch
+    input(type='checkbox')
+    .checkbox
